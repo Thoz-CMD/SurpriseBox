@@ -1,0 +1,479 @@
+/* รีเซ็ตสไตล์ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* พื้นหลังและการจัดวางตู้ */
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:#f0f0f0;
+    font-family:'Roboto',sans-serif;
+}
+
+/* ปุ่มยกเลิกและยืนยัน (ทำให้มีความกว้างเท่ากันและจัดกึ่งกลางสมบูรณ์) */
+.button-container {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    max-width: 300px; /* ใกล้เคียงความกว้าง popup */
+    margin: 22px auto 0;
+    padding: 0 8px;
+}
+
+.cancel-btn, .confirm-btns, .confirm-btn {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    transition: background .25s ease, box-shadow .25s ease, transform .25s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+
+.cancel-btn { background: #f04438; color:#fff; }
+.cancel-btn:hover { background:#d92d20; box-shadow:0 4px 10px rgba(240,68,56,.35); transform: translateY(-2px); }
+
+.confirm-btns, .confirm-btn { background:#2e9748; color:#fff; }
+.confirm-btns:hover, .confirm-btn:hover { background:#257a3a; box-shadow:0 4px 10px rgba(46,151,72,.35); transform: translateY(-2px); }
+
+/* โฟกัสเพื่อการเข้าถึง */
+.cancel-btn:focus, .confirm-btns:focus, .confirm-btn:focus { outline: 3px solid rgba(0,123,255,.4); outline-offset:2px; }
+.vending-machine {
+    width:350px;
+    background:#e1e1e1;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.promotion img {
+    width: 100%;
+    height: auto;
+}
+
+/* แถบโปรโมชั่น */
+.promotion-banner {
+    display: flex;
+    justify-content: center;
+    background-color: #ff5c5c;
+    color: white;
+    font-weight: bold;
+    padding: 5px 0;
+    font-size: 16px; /* เพิ่มขนาดฟอนต์ */
+    font-family: 'Georgia', serif; /* เปลี่ยนฟอนต์สำหรับแถบโปรโมชั่น */
+}
+
+.promotion-banner span {
+    margin: 0 20px;
+}
+
+/* การเลือกภาษาและรหัสสินค้า */
+.language-selection {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #ccc;
+}
+
+/* แสดงสินค้า */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    padding: 1.5px;
+}
+
+.product {
+    background-color: #f6f6f6;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.3s ease; /* เพิ่ม transition */
+    animation: fadeIn 0.5s ease; /* แอนิเมชันเมื่อโหลด */
+}
+
+.product:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+}
+
+.product:hover {
+    transform: scale(1.1);
+}
+
+.product img {
+    width: 80px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.product p {
+    padding: 3px;
+    margin: 0;
+    font-size: 12px; /* เพิ่มขนาดฟอนต์ */
+    color: #ff0000;
+}
+
+/* การจัดการพื้นหลัง */
+body {
+    background-color: #f5f5f5;
+}
+
+.product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.price {
+    padding: 8px;
+    color: #ff0000;
+}
+
+.payment-options img {
+    padding-bottom: -20px;
+    margin: 10px;
+    width: 70px;
+}
+
+.product-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image img {
+    width: 240px;
+    height: auto;
+}
+
+.promotion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.promotion img {
+    width: 350px;
+    height: auto;
+}
+
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.quantity-selector button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: bold;
+    padding: 4px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.quantity-selector button:hover {
+    background-color: #45a049;
+}
+
+.quantity-selector span {
+    font-size: 16px; /* เพิ่มขนาดฟอนต์ */
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Overlay พื้นหลังสำหรับ popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 999;
+}
+
+.popup-overlay.show {
+    display: block;
+}
+
+/* ปรับแต่งสไตล์ของป๊อปอัป */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 300px;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    display: none;
+    text-align: center;
+    z-index: 1000;
+}
+
+#total {
+    padding-top: 10px;
+    color: #0088ff;
+}
+
+#totals {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #0088ff;
+}
+
+#priceinserted {
+    padding-top: 10px;
+    color: #000000;
+}
+
+#changeAmount {
+    color: #ff4d4d;
+}
+
+/* ปรับแต่งให้แสดงเมื่อกดเปิด */
+.popup.show {
+    display: block;
+}
+
+
+
+/* ปุ่มยืนยัน */
+#confirmBtn {
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; /* เพิ่มขนาดฟอนต์ */
+    display: none;
+}
+
+
+
+/* ปุ่มแบงค์ - ออกแบบให้สมดุลกับปุ่มอื่น */
+.banknote-btn {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid #dee2e6;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: #495057;
+    transition: all 0.3s ease;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.banknote-btn:hover {
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    border-color: #adb5bd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    color: #212529;
+}
+
+.banknote-btn:active {
+    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* เอฟเฟกต์พิเศษเมื่อเลือก */
+.banknote-btn.selected {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-color: #0056b3;
+    color: white;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* จัดเรียงปุ่มแบบ grid 3x2 - สมดุลและสวยงาม */
+.banknote-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 20px auto;
+    max-width: 280px;
+    padding: 0 15px;
+    align-items: center;
+}
+
+
+
+/* แสดงเงินทอน */
+.change-amount {
+    margin-top: 10px;
+    font-size: 20px; /* เพิ่มขนาดฟอนต์ */
+}
+
+/* จัดเรียงปุ่มยืนยันและยกเลิกในบรรทัดเดียวกัน */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.vending-machine {
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Success Container */
+.success-container {
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.success-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 10px;
+    animation: zoomIn 0.5s ease-out 0.3s backwards;
+}
+
+.success-container p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+/* Product Image */
+.product-images {
+    width: 450px;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 0.8s ease-out 0.2s backwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.qr-code-container {
+    display: flex; /* ใช้ flexbox สำหรับจัดการเลย์เอาต์ */
+    justify-content: center; /* กึ่งกลางแนวนอน */
+    align-items: center; /* กึ่งกลางแนวตั้ง */
+    margin: 10px 0; /* ลดระยะห่างด้านบนและล่าง */
+    padding: 10px; /* ลดระยะห่างภายใน */
+    border-radius: 10px; /* มุมมน */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ลดเงา */
+    background-color: #f9f9f9; /* สีพื้นหลัง */
+}
+
+#qr-code-image {
+    width: 180px; /* กำหนดขนาดคงที่ */
+    height: 180px; /* กำหนดขนาดคงที่ */
+    max-width: 100%; /* จำกัดขนาดสูงสุดเพื่อให้ไม่เกินขอบ */
+    border-radius: 8px; /* มุมมน */
+    transition: transform 0.2s; /* การเคลื่อนไหว */
+    object-fit: contain; /* รักษาสัดส่วนภาพ */
+}
+
+/* เพิ่มการขยายภาพเมื่อชี้เมาส์ */
+#qr-code-image:hover {
+    transform: scale(1.05); /* ขยาย 5% เมื่อชี้เมาส์ */
+}
+
+/* ปรับแต่งสไตล์ของหัวข้อ popup */
+.popup h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* ปรับแต่งข้อมูลในหน้า QR */
+.popup p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #666;
+}
+
+/* ปรับแต่งปุ่มใน popup */
+.popup button {
+    font-size: 14px;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Container ปุ่ม (เวอร์ชันที่ใช้งานจริงอยู่ตอนบนของไฟล์) */
+
+
+/* Responsive design สำหรับ popup */
+@media (max-width: 480px) {
+  .button-container { max-width:260px; gap:12px; margin-top:18px; }
+  .cancel-btn, .confirm-btns, .confirm-btn { height:44px; font-size:14px; }
+  .popup { width:95%; padding:12px; }
+  .popup h2 { font-size:14px; margin-bottom:10px; }
+  #qr-code-image { width:160px; height:160px; }
+  .qr-code-container { margin:8px 0; padding:8px; }
+  .popup button { font-size:12px; padding:6px 12px; }
+  .banknote-container { gap:10px; }
+}

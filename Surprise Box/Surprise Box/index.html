@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Toy Vending Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ส่วนของตู้กดสินค้าที่เป็นตัว container หลัก -->
+    <div class="vending-machine">
+        <!-- ส่วนหัวของตู้กดสินค้า -->
+        <div class="header">
+            <!-- แสดงสัญลักษณ์ Wi-Fi และชื่อเครือข่าย -->
+            <span class="wifi-icon">WWW_123456</span>
+            <!-- แสดงเวลา 12:00 แบบคงที่ -->
+            <span class="time">12:00</span>
+        </div>
+        
+        <!-- ส่วนแสดงภาพโปรโมท เช่น โปรโมชั่นต่างๆ -->
+        <div class="promotion">
+            <img src="images/promotion.png" alt="Halloween Promotion">
+        </div>
+        
+        <!-- ส่วนของป้ายโปรโมชั่นแสดงข้อความซ้ำกันสองครั้ง -->
+        <div class="promotion-banner">
+            <span>***promotion***</span>
+            <span>***promotion***</span>
+        </div>
+        
+        <!-- ส่วนเลือกประเทศ (ปุ่ม TH) และรหัสสินค้า -->
+        <div class="language-selection">
+            <!-- โค้ดของสินค้าแสดงด้วย XXXX ซ้ำกัน 4 ตัว -->
+            <div class="item-code">
+                <span>XXXX</span>
+                <span>XXXX</span>
+                <span>XXXX</span>
+                <span>XXXX</span>
+            </div>
+            <!-- กำหนดให้ประเทศเป็นภาษาไทย (TH) -->
+            <span>TH</span>
+        </div>
+        
+        <!-- ส่วนแสดงสินค้าในตู้กด -->
+        <div class="products">
+            <!-- สินค้าแต่ละชิ้นที่ผู้ใช้สามารถกดเลือกได้ -->
+            <!-- สินค้าแรก -->
+            <div class="product" onclick="selectProductImage('images/product01.jpg', 'LABUBU MACARON V1', '550 ฿', 0)">
+                <img src="images/product01.jpg" alt="LABUBU V1">
+                <h6>LABUBU V1</h6>
+                <p>550 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่สอง -->
+            <div class="product" onclick="selectProductImage('images/product02.jpg', 'LABUBU V2', '550 ฿', 20)">
+                <img src="images/product02.jpg" alt="LABUBU V2">
+                <h6>LABUBU V2</h6>
+                <p>550 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่สาม -->
+            <div class="product" onclick="selectProductImage('images/product03.jpg', 'Labubu Yoga', '380 ฿', 20)">
+                <img src="images/product03.jpg" alt="Labubu Yoga">
+                <h6>Labubu Yoga</h6>
+                <p>380 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่สี่ -->
+            <div class="product" onclick="selectProductImage('images/product04.jpg', 'Skullpanda...', '380 ฿', 20)">
+                <img src="images/product04.jpg" alt="Skullpanda...">
+                <h6>Skullpanda...</h6>
+                <p>380 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่ห้า -->
+            <div class="product" onclick="selectProductImage('images/product05.jpg', 'CRYBABY...', '380 ฿', 20)">
+                <img src="images/product05.jpg" alt="CRYBABY...">
+                <h6>CRYBABY...</h6>
+                <p>380 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่หก -->
+            <div class="product" onclick="selectProductImage('images/product06.jpg', 'CRYBABY...', '430 ฿', 20)">
+                <img src="images/product06.jpg" alt="CRYBABY...">
+                <h6>CRYBABY...</h6>
+                <p>430 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่เจ็ด -->
+            <div class="product" onclick="selectProductImage('images/product07.jpg', 'CRYBABY...', '380 ฿', 20)">
+                <img src="images/product07.jpg" alt="CRYBABY...">
+                <h6>CRYBABY...</h6>
+                <p>380 ฿</p>
+            </div>
+            <!-- สินค้าชิ้นที่แปด -->
+            <div class="product" onclick="selectProductImage('images/product08.jpg', 'CITRUBY V2', '380 ฿', 20)">
+                <img src="images/product08.jpg" alt="CITRUBY V2">
+                <h6>CITRUBY V2</h6>
+                <p>380 ฿</p>
+            </div>
+        </div>
+    </div>
+    <!-- ลิงก์ไปยังไฟล์ JavaScript ที่ใช้ควบคุมการทำงานของฟังก์ชันต่างๆ -->
+    <script src="script.js" defer></script>
+</body>
+</html>

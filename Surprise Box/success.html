@@ -1,0 +1,41 @@
+<!-- success.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>success page</title>
+    <!-- เชื่อมโยงกับไฟล์ CSS เพื่อใช้ในการออกแบบหน้าเว็บ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- เชื่อมโยงฟอนต์ Roboto จาก Google Fonts เพื่อใช้ในการแสดงผลข้อความ -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vending-machine">
+        <!-- ส่วนหัวของหน้าเว็บ -->
+        <div class="header">
+            <!-- ไอคอนสัญญาณอินเตอร์เน็ต/ WiFi -->
+            <span class="wifi-icon">WWW_123456</span>
+            <!-- แสดงเวลาปัจจุบัน (ในตัวอย่างเป็น 12:00) -->
+            <span class="time">12:00</span>
+        </div>    
+
+        <!-- ส่วนแสดงข้อความสำเร็จ -->
+        <div class="success-container">
+            <!-- แสดงรูปภาพสินค้าที่ผู้ใช้เลือก -->
+            <img id="product-images" src="" alt="Product Image" class="product-images">
+            <!-- ข้อความแจ้งเตือนความสำเร็จ -->
+            <h1>ทำรายการเสร็จสิ้น</h1>
+            <!-- ข้อความให้ผู้ใช้หยิบสินค้าได้ -->
+            <p>หยิบสินค้าได้เลย!</p>
+        </div> 
+    </div>
+
+    <!-- ส่วนสคริปต์ที่ใช้เพื่อดึงรูปสินค้าจาก Local Storage มาแสดง -->
+    <script>
+        // รับค่ารูปภาพสินค้าที่เลือกจาก Local Storage โดยใช้ key 'selectedProductImage'
+        const selectedProductImage = localStorage.getItem('selectedProductImage');
+        // ตั้งค่ารูปภาพที่ได้มาเป็น src ของแท็ก img ที่มี id 'product-images'
+        document.getElementById('product-images').src = selectedProductImage;
+    </script>
+</body>
+</html>

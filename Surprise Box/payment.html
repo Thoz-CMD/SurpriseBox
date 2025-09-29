@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <!-- ลิงก์ไปยังไฟล์ CSS ที่ใช้ในการจัดรูปแบบหน้าเว็บ -->
+    <link rel="stylesheet" href="style.css">
+    <!-- เชื่อมต่อกับ Google Fonts เพื่อใช้ฟอนต์ Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="vending-machine">
+        <!-- ส่วนหัว -->
+        <div class="header">
+            <!-- ไอคอน WiFi -->
+            <span class="wifi-icon">WWW_123456</span>
+            <!-- แสดงเวลาปัจจุบัน -->
+            <span class="time">12:00</span>
+        </div>
+
+        <!-- แสดงรูปภาพของสินค้าที่เลือก -->
+        <div class="product-image">
+            <img id="selected-product-image" src="" alt="Product Image">
+        </div>
+
+        <!-- แถบโปรโมชั่น -->
+        <div class="promotion-banner">
+            <span>***promotion***</span>
+            <span>***promotion***</span>
+        </div>
+
+        <!-- รหัสสินค้าและภาษา -->
+        <div class="language-selection">
+            <div class="item-code">
+                <span>XXXX</span>
+                <span>XXXX</span>
+                <span>XXXX</span>
+                <span>XXXX</span>
+            </div>
+            <!-- แสดงตัวเลือกภาษา (ในตัวอย่างเป็นภาษาไทย) -->
+            <span>TH</span>
+        </div>
+
+        <div class="product-container">
+            <!-- รายละเอียดสินค้า -->
+            <div class="product-detail">
+                <!-- ชื่อของสินค้า -->
+                <h3 id="product-name"></h3>
+                <!-- แสดงจำนวนสินค้าคงเหลือ -->
+                <p>จำนวนสินค้าคงเหลือ: <span id="stock-quantity"></span></p>
+                <!-- ตัวเลือกการเพิ่มและลดจำนวนสินค้า -->
+                <div class="quantity-selector">
+                    <button onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button onclick="increaseQuantity()">+</button>
+                </div>
+                <!-- ราคา -->
+                <h3 class="price" id="product-price"></h3>
+                <h3>เลือกวิธีการชำระเงิน</h3>
+            </div>
+
+            <!-- ตัวเลือกการชำระเงิน -->
+            <div class="payment-options">
+                <!-- ตัวเลือกการชำระเงินด้วยเงินสด -->
+                <img id="cash-option" src="images/cash.png" alt="Cash" onclick="showPopup()">
+                <!-- ตัวเลือกการชำระเงินด้วย PromptPay -->
+                <img id="promptpay-option" src="images/promptpay.png" alt="PromptPay" onclick="showPromptPayPopup()">
+            </div>
+
+            <!-- ป๊อปอัปสำหรับการชำระเงินด้วย PromptPay -->
+            <div class="popup" id="promptPayPopup">
+                <h2>สแกน QR Code เพื่อชำระเงิน</h2>
+                <!-- Container สำหรับ QR Code -->
+                <div class="qr-code-container">
+                    <img src="images/QR.jpg" alt="QR Code" id="qr-code-image">
+                </div>
+                <!-- Container สำหรับปุ่ม -->
+                <div class="button-container">
+                    <button class="cancel-btn" onclick="closePromptPayPopup()">ยกเลิก</button>
+                    <button class="confirm-btns" onclick="confirmPromptPayPayment()">ยืนยัน</button>
+                </div>
+            </div>
+
+            <!-- ป๊อปอัปสำหรับการชำระเงินด้วยเงินสด -->
+            <div class="popup" id="cashPopup">
+                <h2>ชำระเงินโดยเงินสด</h2>
+                <!-- แสดงยอดรวมที่ต้องชำระ -->
+                <h3 id="total">ยอดรวม: <span id="totalPrice"></span> ฿</h3>
+                <!-- แสดงเงินทอน (จะแสดงก็ต่อเมื่อมีการชำระเงินเกินยอดรวม) -->
+                <h3 class="change-amount" id="changeAmount" style="display: none;"></h3>
+                <!-- แสดงจำนวนเงินที่ใส่เข้าไป -->
+                <h3 id="priceinserted">จำนวนเงินที่ใส่เข้าไป: <span id="insertedAmount">0</span> ฿</h3>
+                <!-- ปุ่มสำหรับเพิ่มจำนวนเงินที่ใส่เข้าไป -->
+                <div class="banknote-container">
+                    <button class="banknote-btn" onclick="insertCash(20)">20 ฿</button>
+                    <button class="banknote-btn" onclick="insertCash(50)">50 ฿</button>
+                    <button class="banknote-btn" onclick="insertCash(100)">100 ฿</button>
+                    <button class="banknote-btn" onclick="insertCash(500)">500 ฿</button>
+                    <button class="banknote-btn" onclick="insertCash(1000)">1000 ฿</button>
+                </div>
+                <!-- ปุ่มยกเลิกและปุ่มยืนยันการชำระเงิน -->
+                <div class="button-container">
+                    <button class="cancel-btn" onclick="cancelPayment()">ยกเลิก</button>
+                    <button class="confirm-btn" id="confirmBtn" onclick="confirmPayment()">ยืนยัน</button>
+                </div>                
+            </div>
+        </div>
+    </div>
+<!-- เชื่อมโยงกับไฟล์ JavaScript ที่ใช้ในการควบคุมการทำงานต่าง ๆ บนหน้าเว็บ -->
+<script src="script.js" defer></script>
+</body>
+</html>
